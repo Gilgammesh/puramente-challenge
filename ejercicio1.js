@@ -42,7 +42,7 @@ export const diasRacha = async () => {
 				// Si completo sesión ese día
 				// Incrementamos en uno el día de racha
 				dias++;
-				// Decrementamos en un día la fecha actual para compara con el siguiente día de sesión
+				// Decrementamos en un día la fecha actual para comparar con el siguiente día de sesión
 				now = now.subtract(1, 'day');
 			}
 		}

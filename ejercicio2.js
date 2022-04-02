@@ -46,7 +46,7 @@ export const maximaRacha = async () => {
 				// Si completo sesión ese día
 				// Incrementamos en uno el día de racha
 				dias++;
-				// Decrementamos en un día la fecha actual para compara con el siguiente día de sesión
+				// Decrementamos en un día la fecha actual para comparar con el siguiente día de sesión
 				now = now.subtract(1, 'day');
 				// Guardamos el número de dias en su index correspondiente
 				arrayDias[i] = dias;
@@ -66,6 +66,8 @@ export const maximaRacha = async () => {
 	});
 	// Esperamos el resultado del recorrido
 	await Promise.all(promises);
+	// Obtenemos el máximo número de dias del array de días, usando la funcíón nativa max de la librería Math
+	const maxDias = Math.max(...arrayDias);
 	// Retornamos el máximo de días
-	return Math.max(...arrayDias);
+	return maxDias;
 };
