@@ -11,7 +11,6 @@ const getProgreso = async () => {
 	console.log('Progreso de Usuario');
 	console.log('===================');
 	// Obtenemos los días de racha de la función del ejercicio1
-	// Hardcodeamos la fecha inicial como el día de hoy
 	const dias = await diasRacha();
 	console.log(`Días de racha: ${dias}`);
 	// Obtenemos los días de racha de la función del ejercicio2
