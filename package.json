@@ -1,0 +1,23 @@
+{
+	"name": "pura-mente",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "babel-node index.js",
+		"dev": "nodemon --exec npm start"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@babel/cli": "^7.17.6",
+		"@babel/core": "^7.17.8",
+		"@babel/node": "^7.16.8",
+		"@babel/preset-env": "^7.16.11",
+		"nodemon": "^2.0.15"
+	},
+	"dependencies": {
+		"dayjs": "^1.11.0"
+	}
+}
