@@ -22,7 +22,6 @@ export const diasRacha = async () => {
 	let now = dayjs().tz(zonaHor);
 	// Hardcodeamos la fecha inicial como el día de hoy
 	now = dayjs(fechaIni).tz(zonaHor);
-
 	// Inicializamos los dias de racha en 0 dias
 	let dias = 0;
 
@@ -35,16 +34,12 @@ export const diasRacha = async () => {
 		const dateF = dayjs(ele.dateSession).tz(zonaHor).format(format);
 		// Formatemos la fecha actual
 		const nowF = now.format(format);
-		// Comparamos la fecha actual (que ira variando segun la racha) con la fecha de sesion
-		if (dateF === nowF) {
-			// Si hay coincidencia vemos si completó la sesión ese día
-			if (ele.isSessionCompleted) {
-				// Si completo sesión ese día
-				// Incrementamos en uno el día de racha
-				dias++;
-				// Decrementamos en un día la fecha actual para comparar con el siguiente día de sesión
-				now = now.subtract(1, 'day');
-			}
+		// Si la fecha actual coincide con la fecha de sesion y si completo sesión ese día
+		if (dateF === nowF && ele.isSessionCompleted) {
+			// Incrementamos en uno el día de racha
+			dias++;
+			// Decrementamos en un día la fecha actual para comparar con el siguiente día de sesión
+			now = now.subtract(1, 'day');
 		}
 	});
 	// Esperamos el resultado del recorrido

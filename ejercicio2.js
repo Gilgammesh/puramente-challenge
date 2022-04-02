@@ -22,7 +22,6 @@ export const maximaRacha = async () => {
 	let now = dayjs().tz(zonaHor);
 	// Hardcodeamos la fecha inicial como el día de hoy
 	now = dayjs(fechaIni).tz(zonaHor);
-
 	// Inicializamos los dias de racha en 0 dias
 	let dias = 0;
 	// Inicializamos el index del array
@@ -39,21 +38,17 @@ export const maximaRacha = async () => {
 		const dateF = dayjs(ele.dateSession).tz(zonaHor).format(format);
 		// Formatemos la fecha actual
 		const nowF = now.format(format);
-		// Comparamos la fecha actual (que ira variando segun la racha) con la fecha de sesion
-		if (dateF === nowF) {
-			// Si hay coincidencia vemos si completó la sesión ese día
-			if (ele.isSessionCompleted) {
-				// Si completo sesión ese día
-				// Incrementamos en uno el día de racha
-				dias++;
-				// Decrementamos en un día la fecha actual para comparar con el siguiente día de sesión
-				now = now.subtract(1, 'day');
-				// Guardamos el número de dias en su index correspondiente
-				arrayDias[i] = dias;
-			}
+		// Si la fecha actual coincide con la fecha de sesion y si completo sesión ese día
+		if (dateF === nowF && ele.isSessionCompleted) {
+			// Incrementamos en uno el día de racha
+			dias++;
+			// Decrementamos en un día la fecha actual para comparar con el siguiente día de sesión
+			now = now.subtract(1, 'day');
+			// Guardamos el número de dias en su index correspondiente
+			arrayDias[i] = dias;
 		}
-		// Si existen saltos de fecha o fechas en que el usuario no hizo sesion o sesiones
-		if (dateF < nowF) {
+		// Si existen saltos de fecha o fechas en que el usuario no hizo sesion o sesiones y si completo sesión ese día
+		if (dateF < nowF && ele.isSessionCompleted) {
 			// Reiniciamos los dias a 1
 			dias = 1;
 			// Incrementamos el indice del array en uno

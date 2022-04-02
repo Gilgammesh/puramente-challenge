@@ -1,8 +1,8 @@
 # DESAFIO PURA MENTE
 
-Se instalo babel en el proyecto para usar las funcionalidades con ES6+
+Se instalo babel en el proyecto para usar las funcionalidades con ES6+.
 
-Se instalo la libreria daysjs para el manejo de las fechas
+Se instalo la libreria daysjs para el manejo de las fechas.
 
 ## PRIMER EJERCICIO
 
